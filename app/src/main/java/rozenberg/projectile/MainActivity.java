@@ -4,14 +4,56 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView textAngle;
+    private TextView textVelocity;
+    private TextView textTime;
+    private TextView textAns;
+
+    private EditText editTextVelocity;
+    private EditText editTextAngle;
+    private EditText editTextTime;
+
+    private Button buttonCalc;
+
+    private double angle,velocity,time,x,y,radians;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+
+
+        textAngle= (TextView) findViewById(R.id.text1);
+        editTextAngle= (EditText) findViewById(R.id.editText1);
+        textVelocity= (TextView) findViewById(R.id.text2);
+        editTextVelocity= (EditText) findViewById(R.id.editText2);
+        textTime= (TextView) findViewById(R.id.text3);
+        editTextTime= (EditText) findViewById(R.id.editText3);
+        buttonCalc = (Button) findViewById(R.id.button1);
+        textAns= (TextView) findViewById(R.id.textAns);
+
+        buttonCalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                angle = Double.parseDouble(editTextAngle.getText().toString());
+                velocity = Double.parseDouble(editTextVelocity.getText().toString());
+                time = Double.parseDouble(editTextTime.getText().toString());
+                radians= Math.toRadians(angle);
+                y= Math.cos(radians) * velocity * time - (.5 * 9.8 * time * time);
+                x = Math.sin(radians) * velocity * time;
+                textAns.setText("x = " + x + "  y= " + y);
+            }
+        });
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
