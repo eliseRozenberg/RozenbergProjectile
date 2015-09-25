@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
-
+//tells how the app gets built
 android {
     compileSdkVersion 23
+    //23-android marshmellow
     buildToolsVersion "23.0.1"
 
     defaultConfig {
@@ -18,8 +19,12 @@ android {
         }
     }
 }
-
+//gradle can go to a mavin repository and download the Jars by itself
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
+    //using files from an external library
+    //using the main which extends appcompactactivity
+    //to use the image use piccasso:
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
