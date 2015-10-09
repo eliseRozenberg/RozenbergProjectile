@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonCalc;
 
-    private double angle,velocity,time,x,y,radians;
+    private double angle,velocity,time;
 
 
 
@@ -49,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 angle = Double.parseDouble(editTextAngle.getText().toString());
                 velocity = Double.parseDouble(editTextVelocity.getText().toString());
                 time = Double.parseDouble(editTextTime.getText().toString());
-                radians= Math.toRadians(angle);
-                y= Math.cos(radians) * velocity * time - (.5 * 9.8 * time * time);
-                x = Math.sin(radians) * velocity * time;
-                textAns.setText("x = " + x + "  y= " + y);
+                Projectile projectile = new Projectile(angle,velocity,time);
+                textAns.setText("x = " +  projectile.getX() + "  y= " + projectile.getY() );
             }
         });
 }
