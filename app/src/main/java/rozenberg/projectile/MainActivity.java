@@ -7,9 +7,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class MainActivity extends AppCompatActivity {
+
+    private ImageView imageView;
 
     private TextView textAngle;
     private TextView textVelocity;
@@ -31,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        imageView = (ImageView) findViewById(R.id.image2);
+        Picasso.with(this)
+                .load("http://jokideo.com/wp-content/uploads/2013/03/226431_518712648181745_1707739609_n.jpg")
+                .error(R.drawable.error_image)
+                .into(imageView);
 
         textAngle= (TextView) findViewById(R.id.text1);
         editTextAngle= (EditText) findViewById(R.id.editText1);
