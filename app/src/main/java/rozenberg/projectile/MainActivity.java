@@ -1,5 +1,6 @@
 package rozenberg.projectile;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -56,14 +57,25 @@ public class MainActivity extends AppCompatActivity {
         buttonCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                angle = Double.parseDouble(editTextAngle.getText().toString());
-                velocity = Double.parseDouble(editTextVelocity.getText().toString());
-                time = Double.parseDouble(editTextTime.getText().toString());
-                Projectile projectile = new Projectile(angle,velocity,time);
-                textAns.setText("x = " +  projectile.getX() + "  y= " + projectile.getY() );
-            }
+                calculateProjectile();}
         });
 }
+
+    private void calculateProjectile() {
+        angle = Double.parseDouble(editTextAngle.getText().toString());
+        velocity = Double.parseDouble(editTextVelocity.getText().toString());
+        time = Double.parseDouble(editTextTime.getText().toString());
+        //Projectile projectile = new Projectile(angle,velocity,time);
+        //textAns.setText("x = " +  projectile.getX() + "  y= " + projectile.getY() );
+
+        Intent intent = new Intent(this,AnswerActivity.class);
+        //send the data to intent
+        intent.putExtra("Angle" , angle);
+        intent.putExtra("Velocity" , velocity);
+        intent.putExtra("Time" , time);
+        startActivity(intent);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
