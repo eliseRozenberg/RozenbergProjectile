@@ -25,36 +25,27 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/image2"/>
-    <TextView
-        android:text="@string/angle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text1"/>
+
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="numberDecimal"
-        android:id="@+id/editText1"/>
-    <TextView
-        android:text="@string/velocity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text2" />
+        android:id="@+id/editText1"
+        android:hint="angle"/>
+
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="numberDecimal"
-        android:id="@+id/editText2"/>
-    <TextView
-        android:text="@string/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text3"/>
+        android:id="@+id/editText2"
+        android:hint="velocity"/>
+
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="numberDecimal"
-        android:id="@+id/editText3"/>
+        android:id="@+id/editText3"
+        android:hint="time"/>
     <Button
         android:text="@string/calculate"
         android:layout_width="match_parent"
